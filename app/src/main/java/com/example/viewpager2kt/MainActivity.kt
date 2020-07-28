@@ -19,16 +19,50 @@ class MainActivity : AppCompatActivity() {
     private val introSliderAdapter = IntroSliderAdapter(
         listOf(
             IntroSlide(
-                "Man",
-                "My name is yoonHaeng",
-                R.drawable.person
+                "How to prevent COVID19",
+                "Explain how to prevent COVID19",
+                R.drawable.facemask
             ),
             IntroSlide(
-                "Girl",
-            "GIRL",
-                R.drawable.girl
+                "Use Mask",
+                "You must wear a mask when you go out",
+                R.drawable.covid
             ),
-            IntroSlide("User","user description",R.drawable.user)
+            IntroSlide(
+                "Disinfection",
+                "Disinfection is mandatory!",
+                R.drawable.disinfection
+            ),
+            IntroSlide(
+                "Cover Cough",
+                "When you cough, you should cover it",
+                R.drawable.cough
+            ),
+            IntroSlide(
+                "Don't touch your eyes",
+                "Don't touch your eyes before washing your hands",
+                R.drawable.coronavirus
+            ),
+            IntroSlide(
+                "Washing Hands",
+                "Washing your hands for 20seconds",
+                R.drawable.washinghands
+            ),
+            IntroSlide(
+                "No Flight",
+            "Please refrain from traveling for a while",
+                R.drawable.noflight
+            ),
+            IntroSlide(
+                "Social Distancing",
+                "Practice social distance by maintaining a distance of 2m.",
+                R.drawable.socialdistancing
+            ),
+            IntroSlide(
+                "No COVID19",
+                "we can overcome COVID19",
+                R.drawable.person
+            )
         )
     )
     private fun btnTextChange(idx:Int){
