@@ -3,9 +3,12 @@ package com.example.viewpager2kt
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
@@ -28,6 +31,14 @@ class MainActivity : AppCompatActivity() {
             IntroSlide("User","user description",R.drawable.user)
         )
     )
+    private fun btnTextChange(idx:Int){
+        if(idx + 1 < introSliderAdapter.itemCount) {
+            buttonNext.text = "NEXT"
+        }
+        else if(idx + 1 == introSliderAdapter.itemCount){
+            buttonNext.text = "START"
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,12 +50,30 @@ class MainActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 setCurrentIndicator(position)
+                btnTextChange(position)
             }
         })
         buttonNext.setOnClickListener {
-            if(introSliderViewPager.currentItem + 1 < introSliderAdapter.itemCount){
+
+            if(introSliderViewPager.currentItem + 1 < introSliderAdapter.itemCount) {
+
+
+                if (introSliderViewPager.currentItem + 2 == introSliderAdapter.itemCount) {
+
+                    Log.d(
+                        "TEST4!!!",
+                        "${introSliderViewPager.currentItem} ()()() ${introSliderAdapter.itemCount}"
+                    )
+                }
+                Log.d(
+                    "TEST4!!!",
+                    "${introSliderViewPager.currentItem} + ${introSliderAdapter.itemCount}"
+                )
+
                 introSliderViewPager.currentItem += 1
-            }else{
+            }
+            else{
+                Log.d("TEST4!!!","${introSliderViewPager.currentItem} ==== ${introSliderAdapter.itemCount}")
                 Intent(applicationContext,AnotherActivity::class.java).also{
                     startActivity(it)
                 }
